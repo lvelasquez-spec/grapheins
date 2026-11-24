@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grapheins — Sequence-defined aromatic materials</title>
+<meta name="description" content="Grapheins is a deep-tech molecular materials company building a new class of sequence-defined aromatic materials — programmable chains of fused-aromatic building blocks joined by amide bonds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101418; --ink-soft:#3a434c; --muted:#6b7680;
+    --line:#e4e7ea; --bg:#ffffff; --bg-soft:#f6f7f8;
+    --accent:#1b3a6b; --accent-soft:#eaf0f8;
+    --max:960px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-0.01em;line-height:1.15}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+  /* Nav */
+  header.nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;color:var(--ink);letter-spacing:-.02em}
+  .brand svg{display:block}
+  .nav nav a{color:var(--ink-soft);font-size:.92rem;margin-left:26px}
+  @media(max-width:620px){.nav nav{display:none}}
+
+  /* Hero */
+  .hero{padding:92px 0 78px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.5rem);max-width:17ch}
+  .hero p.lead{font-size:1.22rem;color:var(--ink-soft);max-width:60ch;margin-top:24px}
+  .hero .cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:13px 24px;border-radius:8px;font-size:.95rem;font-weight:500}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.primary:hover{background:#14294d;text-decoration:none}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--muted);text-decoration:none}
+
+  /* Sections */
+  section{padding:76px 0;border-bottom:1px solid var(--line)}
+  .sec-eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:16px}
+  section h2{font-size:clamp(1.7rem,3.4vw,2.25rem);max-width:22ch}
+  section .body{margin-top:22px;max-width:66ch}
+  section .body p{color:var(--ink-soft);margin-bottom:18px}
+  section .body p strong{color:var(--ink);font-weight:600}
+
+  /* Pillars */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:12px;padding:26px 24px;background:var(--bg)}
+  .card h3{font-size:1.2rem;margin-bottom:10px}
+  .card p{font-size:.95rem;color:var(--ink-soft)}
+  .card .ix{width:38px;height:38px;border-radius:9px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--accent);font-weight:600;font-family:'Fraunces',serif}
+
+  /* Status / honesty */
+  .status{background:var(--bg-soft)}
+  .statusbox{border-left:3px solid var(--accent);padding:4px 0 4px 24px;margin-top:26px;max-width:66ch}
+  .statusbox p{color:var(--ink-soft)}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  @media(max-width:620px){.facts{grid-template-columns:1fr}}
+  .fact{padding:26px 24px;border-right:1px solid var(--line)}
+  .fact:last-child{border-right:none}
+  @media(max-width:620px){.fact{border-right:none;border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:none}}
+  .fact .k{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--ink);font-weight:600}
+  .fact .v{font-size:.9rem;color:var(--muted);margin-top:4px}
+
+  /* Team */
+  .team{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px}
+  @media(max-width:620px){.team{grid-template-columns:1fr}}
+  .person{border:1px solid var(--line);border-radius:12px;padding:26px 24px}
+  .person .nm{font-family:'Fraunces',serif;font-size:1.22rem;font-weight:600}
+  .person .rl{font-size:.85rem;color:var(--accent);font-weight:500;margin:4px 0 12px}
+  .person p{font-size:.93rem;color:var(--ink-soft)}
+
+  /* Contact / footer */
+  .contact{text-align:left}
+  .contact .body{margin-bottom:8px}
+  footer{padding:44px 0;color:var(--muted);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .legal{max-width:60ch}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="6" cy="7" r="2.3" stroke="#1b3a6b" stroke-width="1.5"/>
+        <circle cx="13" cy="13" r="2.3" stroke="#1b3a6b" stroke-width="1.5"/>
+        <circle cx="20" cy="19" r="2.3" stroke="#1b3a6b" stroke-width="1.5"/>
+        <path d="M7.7 8.7 L11.3 11.3 M14.7 14.7 L18.3 17.3" stroke="#1b3a6b" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Grapheins
+    </div>
+    <nav>
+      <a href="#science">Technology</a>
+      <a href="#status">Status</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Molecular materials · Deep tech</div>
+    <h1>A programmable alphabet for aromatic materials.</h1>
+    <p class="lead">Grapheins is building a new class of <strong>sequence-defined aromatic materials</strong> — chains of fused-aromatic building blocks joined, unit by unit, by the same amide bond that assembles every protein in biology.</p>
+    <div class="cta">
+      <a class="btn primary" href="#science">How it works</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="science">
+  <div class="wrap">
+    <div class="sec-eyebrow">The idea</div>
+    <h2>Biology builds with sequence. Chemistry mostly builds at random.</h2>
+    <div class="body">
+      <p>Proteins owe their precision to one thing: a small alphabet of building blocks arranged in a <strong>defined sequence</strong>, joined head-to-tail by amide bonds, folding into exact shapes. Most synthetic polymers, by contrast, are assembled randomly or by simple repetition.</p>
+      <p>Grapheins closes that gap from an unusual direction. Our building block is not a biological amino acid but a <strong>fused-aromatic core</strong> — in the first generation, a well-characterized polycyclic aromatic hydrocarbon used as a manageable, low-cost surrogate for a fragment of nanographene. Each core carries two directional handles, one amino and one carboxyl, so the blocks couple head-to-tail through ordinary amide bonds, exactly as peptides do.</p>
+      <p>The result is a sequence-defined chain whose backbone presents flat, π-rich aromatic faces instead of biological side chains — <strong>a molecular Lego</strong> in which the identity and the order of every unit is programmed.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="ix">01</div>
+        <h3>Molecular biomimicry</h3>
+        <p>We treat a nanographene surrogate as if it were an amino acid, with defined N-to-C polarity — so decades of peptide-coupling chemistry become directly usable.</p>
+      </div>
+      <div class="card">
+        <div class="ix">02</div>
+        <h3>Sequence definition</h3>
+        <p>Chains are built one unit at a time, in a programmed order. The sequence is the design variable — a vast, addressable space of π-conjugated materials.</p>
+      </div>
+      <div class="card">
+        <div class="ix">03</div>
+        <h3>Computation-to-lab selection</h3>
+        <p>An in-silico screen ranks candidate sequences so we synthesize only the few worth making — spending simulation cycles instead of reagents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="status" class="status">
+  <div class="wrap">
+    <div class="sec-eyebrow">Where we are — stated plainly</div>
+    <h2>A complete design and preliminary simulations. Function still to be proven.</h2>
+    <div class="statusbox">
+      <p>We hold ourselves to the same filter we apply to any claim: <strong>a molecule is worth nothing until it is synthesized, isolated, and its structure characterized beyond doubt.</strong> As of today, Grapheins has a complete molecular design and preliminary computational support. We do <strong>not</strong> claim any demonstrated functional property. Our next step is a focused proof of concept — to synthesize, purify and characterize a single main-chain amide bond between two aromatic building blocks, confirmed independently.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="k">Provisional</div><div class="v">Patent application filed (2026)</div></div>
+      <div class="fact"><div class="k">21</div><div class="v">Worked molecular examples</div></div>
+      <div class="fact"><div class="k">PoC</div><div class="v">Synthesis proof of concept in preparation</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="sec-eyebrow">Team</div>
+    <h2>A lean research company, by design.</h2>
+    <div class="body">
+      <p>Grapheins is being built as a focused "human + AI" research model, so a small team can move at the pace of far larger groups. The company is being incorporated as a Delaware C-corporation.</p>
+    </div>
+    <div class="team">
+      <div class="person">
+        <div class="nm">Luis Velásquez Cumplido</div>
+        <div class="rl">Founder · Scientific Lead</div>
+        <p>Biologist with over two decades of laboratory experience in bionanotechnology, advanced materials and molecular simulation, and more than 100 publications across those fields. Inventor of the Grapheins concept.</p>
+      </div>
+      <div class="person">
+        <div class="nm">Paula Solar Oliver</div>
+        <div class="rl">Co-inventor</div>
+        <p>Scientist and co-inventor of the core concept, contributing to molecular design and the modeling of candidate systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-eyebrow">Contact</div>
+    <h2>Let's talk.</h2>
+    <div class="body">
+      <p>For collaboration, scientific or investment enquiries, write to <a href="mailto:hello@grapheins.com">hello@grapheins.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Grapheins, Inc. (in formation) — Delaware, USA.</div>
+    <div class="legal">Grapheins is an early-stage deep-tech research company. Nothing on this page constitutes a claim of demonstrated performance.</div>
+  </div>
+</footer>
+
+</body>
+</html>
